@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Individual {
@@ -8,6 +9,7 @@ public class Individual {
      * Each character represents a gene
      */
     ArrayList<Character> chromosome;
+    ArrayList<Character>  children;
     
     /**
      * Chooses a letter at random, in the range from A to the number of states indicated
@@ -46,9 +48,17 @@ public class Individual {
      * @param num_letters The number of letters available to choose from
      */
     public Individual(int c_0, int num_letters) {
-      // here, 
-      c_0 = randomLetter(num_letters);
-      
+      // initilizing chromosome array
+      this.chromosome = new ArrayList<>();
+
+      // loop that adds random characters to list and prints it out to check 
+      for (int i = 0; i < c_0; i++){
+        
+        char randomizedLetter = randomLetter(num_letters);
+        chromosome.add(randomizedLetter);
+      }
+
+      System.out.println("Chromosome's " + chromosome);
     }
 
      /**
@@ -58,24 +68,65 @@ public class Individual {
       * @param c_max The maximum chromosome size
       * @param m The chances per round of mutation in each gene
       */
-    public Individual(Individual parent1, Individual parent2, int c_max, double m, int num_letters) {
-      // fill in
-    }
-    /**
-     * @param 
-     */
-    public Individual(int c_0){
+    public Individual(Individual parent1, Individual parent2, int c_max, float m, int num_letters) {
+      Random rand = new Random();
+      int prefix = rand.nextInt(parent1.chromosome.size())+ 1;
+      int suffix = rand.nextInt(parent2.chromosome.size()) + 1;
 
-    }
+      
+      this.chromosome = new ArrayList<>();
 
+      for(int i = 0; i<prefix; i++){
+        this.chromosome.add(parent1.chromosome.get(i));
+      }
+      for(int i = 0; i<suffix; i++){
+        this.chromosome.add(parent2.chromosome.get(i));
+      }
+      // mutation for loop
+      for(int i = 0; i < chromosome.size(); i++){
+        if (this.doesMutate(m)){
+          this.chromosome.set(i, this.randomLetter(num_letters));
+        }
+      }
+
+      // truncate method 
+      while (this.chromosome.size() > c_max){
+        this.chromosome.remove(this.chromosome.size() - 1);
+      }
+      System.out.println("Chromosome's " + chromosome);
+    }
     /**
      * Calculates the fitness score of each chromosome
      * @return The fitness score as an int
      */
-    public int getFitness() {
-        // fill in
-        // remove the return below and write your own
-        return 0;
+    public int getFitness( ) {
+      int score = 0;
+      int n = this.chromosome.size();
+        for (int i = 0; i < n/2 ; i++){
+          if (this.chromosome.get(i) == this.chromosome.get(n-i-1)){
+            score++;
+          } else if 
+            (this.chromosome.get(i) != this.chromosome.get(n-i-1)){
+              score--;
+            }
+            
+    } 
+      for (int i = 0; i < n/2 ; i ++) {
+          if (this.chromosome.get(i) == this.chromosome.get(i+1)){
+            score--;
+          } 
+      }
+   
+    return score;
+  }
+
+
+    public static void main(String[] args) {
+      Individual I2 = new Individual(8,5);
+      Individual I3 = new Individual(8,5);
+      Individual C4 = new Individual(I3, I2, 8, 0, 5);
+      System.out.println(C4.toString());
+      System.out.println(C4.getFitness());
     }
-    
+ 
 }

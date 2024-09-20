@@ -40,6 +40,8 @@ We have provided a `toString` method to allow you to print your `Individual`. Th
 
 Next, you want to create a second constructor that will allow you to generate offspring by combining the genetic information from two parents. You'll use this constructor to create the creatures in all but the first generation. 
 
+note : They want me to splice the genetic info from two different lists to create a list that will act an an offspring
+
 ### Constructor
 
 Here's how it should work:
