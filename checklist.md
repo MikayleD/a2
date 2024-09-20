@@ -11,21 +11,21 @@ your work, please indicate the status of each item
 
 Assignment Points:
 
-_____ 1 pt: `Individual` initial constructor
+__Yes___ 1 pt: `Individual` initial constructor
 
-_____ 1 pt: `Individual` two-parent constructor
+__Yes___ 1 pt: `Individual` two-parent constructor
 
-_____ 2 pts: `Individual` method to compute fitness
+__Yes___ 2 pts: `Individual` method to compute fitness
 
-_____ 1 pt: `GA_Simulation` constructor & fields
+__Yes___ 1 pt: `GA_Simulation` constructor & fields
 
-_____ 1 pt: `init` method
+__Yes___ 1 pt: `init` method
 
-_____ 2 pts: `evolve` method
+__Yes___ 2 pts: `evolve` method
 
-_____ 1 pts: `describeGeneration` method
+__Yes___ 1 pts: `describeGeneration` method
 
-_____ 1 pt: `run` method
+___Yes__ 1 pt: `run` method
 
 
 Kudos:
@@ -35,9 +35,9 @@ _____ (Kudos!) Exploration of genetic algorithm performance under different para
 
 ## General Items:
 
-_____ 4 pts: Programs compile without errors or warnings
+__Yes___ 4 pts: Programs compile without errors or warnings
 
-_____ 2 pts: Executes fully & consistently without crashing (exception/freeze)
+___Yes__ 2 pts: Executes fully & consistently without crashing (exception/freeze)
 
 _____ 2 pt: Complies with style guidelines (missing items 1 pt each):
 

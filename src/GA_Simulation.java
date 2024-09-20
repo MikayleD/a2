@@ -43,7 +43,7 @@ public class GA_Simulation {
       }
 
   /** initializes a population of the desired size 
-   * 
+   * @param n takes in  the amount of times that individuals should be populated
    */
     public void init(int n){
       // array list runs n times and each time you will populate a new inividual 
@@ -53,7 +53,9 @@ public class GA_Simulation {
       }
       }
 
-  
+    /** selects each generation's winners, puts it into a list then evolves a new generation from two parents 
+     * 
+     */
     public void evolve(){
       this.rankPopulation(currentGeneration);
 
@@ -62,7 +64,6 @@ public class GA_Simulation {
       for (int i = 0; i < k; i++ ){
         firstGenWinners.add(this.currentGeneration.get(i));
       }
-      System.out.println("The winners are " + firstGenWinners);
       for(int i = 0; i < n; i++ ){
         int randnum1 = ThreadLocalRandom.current().nextInt(0, k);
         Individual parent1 = firstGenWinners.get(randnum1);
@@ -75,7 +76,11 @@ public class GA_Simulation {
 
       }
       currentGeneration = newGeneration;
+      System.out.println("The winners are " + firstGenWinners);
     }
+    /** Prints out various statistics about the genrations fitness 
+     * 
+     */
     public void describeGeneration(){
       Individual mostFit = currentGeneration.getFirst();
       Individual kth = currentGeneration.get(k);
@@ -85,7 +90,9 @@ public class GA_Simulation {
       System.out.println("The k th fit individual's score is " + kth.getFitness());
 
       }
-
+      /** run method that runs entire expirement by doing the initilizing, evolving,  ranking and describing. It then will do this for each round specified
+       * 
+       */
       public void run(){
         this.init(50);
         this.rankPopulation(currentGeneration);
