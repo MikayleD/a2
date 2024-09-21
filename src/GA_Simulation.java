@@ -106,7 +106,7 @@ public class GA_Simulation {
       }
       public static void main(String[] args) {
         System.out.println("now running test ");
-        GA_Simulation test = new GA_Simulation(10, 1, 10, 8, 20, 1, 5);
+        GA_Simulation test = new GA_Simulation(10, 3, 10, 8, 20, 1, 5);
         test.run();
       }
 }

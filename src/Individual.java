@@ -93,7 +93,7 @@ public class Individual {
       while (this.chromosome.size() > c_max){
         this.chromosome.remove(this.chromosome.size() - 1);
       }
-      System.out.println("Chromosome's " + chromosome);
+      System.out.println("Child Chromosome's " + chromosome);
     }
     /**
      * Calculates the fitness score of each chromosome
